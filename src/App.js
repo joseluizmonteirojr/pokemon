@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { ConfigProvider } from 'antd';
+import ptBR from 'antd/lib/locale-provider/pt_BR';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import GlobalStyle from './style';
+import Header from './components/header';
+import Routes from './routes';
+
+const App = () => (
+  <Router>
+    <ConfigProvider locale={ptBR}>
+      <GlobalStyle />
+      <Header />
+      <Routes />
+    </ConfigProvider>
+  </Router>
+);
 
 export default App;
